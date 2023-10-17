@@ -52,14 +52,14 @@ public class Main {
 
     private static double calculateDistance(double latitude1, double longitude2, double latitude2, double longitude1) {
         // Convert degree values to radians
-        longitude2 = Math.toRadians(longitude2);
-        latitude1 = Math.toRadians(latitude1);
-        longitude2 = Math.toRadians(longitude2);
-        latitude2 = Math.toRadians(latitude2);
+        double converted_longitude1 = Math.toRadians(longitude1);
+        double converted_latitude1 = Math.toRadians(latitude1);
+        double converted_longitude2 = Math.toRadians(longitude2);
+        double converted_latitude2 = Math.toRadians(latitude2);
 
         // Calculating the distance
-        double doubleLatitude = latitude2 - latitude1;
-        double doubleLongitude = longitude2 - longitude2;
+        double doubleLatitude = converted_latitude2 - converted_latitude1;
+        double doubleLongitude = converted_longitude2 - converted_longitude1;
         double a = Math.pow(Math.sin(doubleLatitude / 2), 2) + Math.cos(latitude1) * Math.cos(latitude2) * Math.pow(Math.sin(doubleLongitude / 2), 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         double radius = 6371; // earth radius
